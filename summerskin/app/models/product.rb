@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
                   :name, 
                   :price, 
                   :quantity, 
+                  :picture,
                   :picture_file_name, 
                   :picture_content_type, 
                   :picture_file_size, 
