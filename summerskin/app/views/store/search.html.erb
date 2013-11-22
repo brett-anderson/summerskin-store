@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+
+      <h2>Product Search</h2>
+
+      <%= form_tag(search_results_path, :class => 'form') do %>
+        <%= text_field_tag( :keywords, nil, :class       => 'form-control', :placeholder => 'search...') %>  
+        <%= submit_tag 'Search', :class => 'btn btn-default' %>
+      <% end %> 
+    </div>
+  </div>
+</div>
