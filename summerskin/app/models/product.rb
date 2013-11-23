@@ -16,4 +16,5 @@ class Product < ActiveRecord::Base
 
   validates :picture, :attachment_presence => true
   validates_with AttachmentPresenceValidator, :attributes => :picture
+  belongs_to :category
 end

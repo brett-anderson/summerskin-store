@@ -1,0 +1,7 @@
+#content
+  - @products.each do |product|
+    %ul
+      %li Product: #{product.name}
+      %li Description: #{product.description}
+      %li Price: #{number_to_currency(product.price)}
+      
