@@ -14,7 +14,7 @@ gem 'paperclip'
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'bootstrap-sass'
-gem 'mercury-rails'
+
 
 
 

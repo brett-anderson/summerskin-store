@@ -1,0 +1,26 @@
+.row
+  .header
+    = link_to image_tag("lion_vector.png", {:class => 'lion'}), home_path
+    %h1.text-center Summerskin Clothing
+    = link_to image_tag("lion_vector_inverse.png", {:class => 'inverse lion'}), admin_path
+  %nav.navbar{:role => 'navigation'}
+    .navbar-header
+      %button.navbar-toggle{:type => 'button', 'data-toggle' => "collapse", 'data-target' => '#navbar-collapse'}
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .collapse.navbar-collapse#navbar-collapse
+      %ul.nav.nav-justified.grey-bar     
+        %li= link_to 'Store', root_path    
+        %li= link_to "About", about_path
+        %li= link_to "Contact Us", contact_path
+        / - @pages.each do |page|
+        /   %li= link_to page_path(page, :title => '')
+        %li
+          %form.navbar-form.navbar-right#search{:role => 'search'}
+            .form-group
+              %input.form-control{:type => 'text', :placeholder => 'search'}
+            %button.btn{:type => 'submit'} Submit
+
+  %section.ss-banner= image_tag 'ss_banner.png', :id => 'ss-banner'

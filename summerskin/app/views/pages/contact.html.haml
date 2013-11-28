@@ -1,5 +1,3 @@
 .container#main-wrapper
   = render 'header'
-  .row
-    %h2#merc-primary{'data-mercury' => 'full'}= @page.title
-    %p#merc-primary{'data-mercury' => 'full'}= @page.content
+  = render 'page'

@@ -16,6 +16,19 @@
 // Loads all Bootstrap javascripts
 //= require bootstrap
 
-// jQuery(window).on('mercury:ready', function() {
-//   Mercury.saveUrl = '/about';
-// });
+jQuery(window).on('mercury:ready', function() {
+  Mercury.saveUrl = '/about';
+});
+
+onload: function() {
+    Mercury.on('ready', function() {
+        var link = $('#mercury_iframe').contents().find('#edit_link');
+        console.log("mercury ready ready", link);
+        mercuryInstance.saveUrl = link.data('save-url');
+        link.hide();
+    });
+
+    Mercury.on('saved', function() {
+        window.location.href = window.location.href.replace(/\/editor\//i, '/');
+    });
+}

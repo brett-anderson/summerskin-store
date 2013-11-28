@@ -1,12 +1,11 @@
 Summerskin::Application.routes.draw do
 
-  mount Mercury::Engine => '/'
-
   resources :products, except: :show
-  resources :pages
+  resources :categories
 
   root :to => "store#index", via: :get, as: :home
   match 'products/:id' => 'store#show', as: 'product', via: :get
+  match 'categories/:id' => 'store#show', as: 'category', via: :get
   # match 'pages/:id' => 'store#show', as: 'page', via: :get
   match '/admin' => 'admin/dashboard#index', as: 'admin'
 
@@ -15,11 +14,11 @@ Summerskin::Application.routes.draw do
 
   match '/admin/contact_us' => 'store#about_us', as: 'about_us', via: :get
 
-  match '/about' => 'pages#about', as: :about
+  match '/about' => 'pages#about', as: :about, via: :get
+  match '/contact' => 'pages#contact', as: :contact, via: :get
+  
 
-  match '/about' => 'pages#about', as: :about, via: :post
 
-  match '/contact' => 'pages#contact', as: :contact
 
 
 

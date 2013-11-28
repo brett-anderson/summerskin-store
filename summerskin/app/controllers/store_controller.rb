@@ -1,11 +1,10 @@
 class StoreController < ApplicationController
   def index
     @products = Product.all
-    @pages = Page.all
+    @categories = Category.all
   end
   def show
     @product = Product.find(params[:id])
-    @page = Page.find(params[:id])
   end
   def search
     # No code required here

@@ -1,8 +1,5 @@
 .container#main-wrapper
   = render 'header'
-
 .row
-  %aside#side-nav.container.col
-    
-  .container#products
-    .row= render @products
+  / %aside.row= render @categories
+  .container= render @products
