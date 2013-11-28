@@ -1,0 +1,69 @@
+@import "bootstrap"
+@import "bootstrap/theme"
+
+@font-face
+  font-family: 'sweetly_brokenregular'
+  src: url('sweetly_broken-webfont.eot')
+  src: url('sweetly_broken-webfont.eot?#iefix') format('embedded-opentype'), url('sweetly_broken-webfont.woff') format('woff'), url('sweetly_broken-webfont.ttf') format('truetype'), url('sweetly_broken-webfont.svg#sweetly_brokenregular') format('svg')
+  font-weight: normal
+  font-style: normal
+
+@font-face 
+  font-family: 'bebasneue'
+  src: url('bebasneue.eot')
+  src: url('bebasneue.eot?#iefix') format('embedded-opentype'), url('bebasneue.woff') format('woff'), url('bebasneue.ttf') format('truetype'), url('bebasneue.svg#bebasneueregular') format('svg')
+  font-weight: normal
+  font-style: normal
+
+#main-wrapper
+  position: relative
+h1 
+  font-family: 'sweetly_brokenregular'
+  font-weight: 100
+  font-size: 5em
+  padding: 5px
+
+#ss-banner
+  position: absolute
+  width: 100%
+  z-index: -5
+  margin: 0px auto
+
+#products
+
+.header
+  position: relative  
+
+.product
+  background-color: rgba(255, 255, 255, .9)
+  text-align: center
+  padding: 5px
+  margin: 10px
+  min-height: 300px
+  box-shadow: 2px 2px 1px rgba(1, 1, 1, .5)
+  transition: all 0.3s
+  &:hover
+    background-color: rgba(255, 255, 255, 1)  
+  h3 a
+    color: #F59000
+
+
+.navbar-inner
+  background: none
+  border: none
+  box-shadow: none
+  text-align: center
+
+nav li
+  border-bottom: 3px #888 solid
+  font-family: 'bebasneue'
+  color: #888
+  font-size: 1.5em
+
+.lion
+  width: 100px
+  position: absolute
+  bottom: 0px   
+
+.inverse
+  right: 0px

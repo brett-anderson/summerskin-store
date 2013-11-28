@@ -1,0 +1,19 @@
+/*
+ *= require_self
+ *= require_tree .
+ *= require twitter/bootstrap
+ */
+
+@font-face
+  font-family: 'sweetly_brokenregular'
+    src: url('sweetly_broken-webfont.eot')
+    src: url('sweetly_broken-webfont.eot?#iefix') format('embedded-opentype')
+      url('sweetly_broken-webfont.woff') format('woff')
+      url('sweetly_broken-webfont.ttf') format('truetype')
+      url('sweetly_broken-webfont.svg#sweetly_brokenregular') format('svg')
+    font-weight: normal
+    font-style: normal
+
+h1 
+  font-family: 'sweetly_brokenregular'
+  font-size: 3em

@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
                   :price, 
                   :quantity, 
                   :picture,
+                  :category_id,
                   :picture_file_name, 
                   :picture_content_type, 
                   :picture_file_size, 
@@ -15,6 +16,11 @@ class Product < ActiveRecord::Base
                     :default_url => "/images/:style/missing.png"
 
   validates :picture, :attachment_presence => true
+  validates :name, :description, :price, :picture, :presence => true
+  validates :price, :numericality => true
+
   validates_with AttachmentPresenceValidator, :attributes => :picture
   belongs_to :category
+  has_many :line_items
+  has_many :orders, :through => :line_items
 end

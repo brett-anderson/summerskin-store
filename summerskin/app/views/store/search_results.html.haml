@@ -1,0 +1,6 @@
+%h2 Search Results
+
+- if @products.empty?
+  %p= 'Sorry, your search for ' + params[:keywords] + ' came up empty.'
+
+= render @products

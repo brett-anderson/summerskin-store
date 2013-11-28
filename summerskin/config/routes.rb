@@ -2,8 +2,10 @@ Summerskin::Application.routes.draw do
 
   resources :products, except: :show
 
-  root :to => "store#index", via: :get
+  root :to => "store#index", via: :get, as: :home
   match 'products/:id' => 'store#show', as: 'product', via: :get
+
+  match '/admin' => 'admin/dashboard#index', as: 'admin'
 
   match 'search' => 'store#search', as: 'search', via: :get
   match 'search_results' => 'store#search_results', as: 'search_results', via: :post
