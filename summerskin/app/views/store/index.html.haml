@@ -4,7 +4,7 @@
       = link_to image_tag("lion_vector.png", {:class => 'lion'}), home_path
       %h1.text-center Summerskin Clothing
       = link_to image_tag("lion_vector_inverse.png", {:class => 'inverse lion'}), admin_path
-    %nav.navbar.navbar-default{:role => 'navigation'}
+    %nav.navbar{:role => 'navigation'}
       .navbar-header
         %button.navbar-toggle{:type => 'button', 'data-toggle' => "collapse", 'data-target' => '#navbar-collapse'}
           %span.sr-only Toggle Navigation
@@ -12,13 +12,10 @@
           %span.icon-bar
           %span.icon-bar
       .collapse.navbar-collapse#navbar-collapse
-        %ul.nav.navbar-nav
-          %li.active 
-            %a About
-          %li
-            %a Contact
-          %li
-            %a Home
+        %ul.nav.nav-justified 
+          = @pages.each do |page|
+            %li
+              %a= link_to page_path(page)
         %form.navbar-form.navbar-right{:role => 'search'}
           .form-group
             %input.form-control{:type => 'text', :placeholder => 'search'}

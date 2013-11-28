@@ -1,6 +1,9 @@
 Summerskin::Application.routes.draw do
 
+  mount Mercury::Engine => '/'
+
   resources :products, except: :show
+  resources :pages
 
   root :to => "store#index", via: :get, as: :home
   match 'products/:id' => 'store#show', as: 'product', via: :get
@@ -9,6 +12,10 @@ Summerskin::Application.routes.draw do
 
   match 'search' => 'store#search', as: 'search', via: :get
   match 'search_results' => 'store#search_results', as: 'search_results', via: :post
+
+  match '/admin/contact_us' => 'store#about_us', as: 'about_us', via: :get
+
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
