@@ -15,3 +15,7 @@
 
 // Loads all Bootstrap javascripts
 //= require bootstrap
+
+// jQuery(window).on('mercury:ready', function() {
+//   Mercury.saveUrl = '/about';
+// });

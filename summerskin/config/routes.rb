@@ -7,13 +7,21 @@ Summerskin::Application.routes.draw do
 
   root :to => "store#index", via: :get, as: :home
   match 'products/:id' => 'store#show', as: 'product', via: :get
-
+  # match 'pages/:id' => 'store#show', as: 'page', via: :get
   match '/admin' => 'admin/dashboard#index', as: 'admin'
 
   match 'search' => 'store#search', as: 'search', via: :get
   match 'search_results' => 'store#search_results', as: 'search_results', via: :post
 
   match '/admin/contact_us' => 'store#about_us', as: 'about_us', via: :get
+
+  match '/about' => 'pages#about', as: :about
+
+  match '/about' => 'pages#about', as: :about, via: :post
+
+  match '/contact' => 'pages#contact', as: :contact
+
+
 
 
 

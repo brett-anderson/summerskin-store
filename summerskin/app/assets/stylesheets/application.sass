@@ -50,9 +50,8 @@ h1
   h3 a
     color: $orange
 
-.navbar
-
-    
+.navbar-form
+  margin-bottom: -7px
 
 .navbar-inner
   background: none
@@ -61,14 +60,22 @@ h1
   text-align: center
   bottom: 1px solid $orange !important
 
-nav li a
+nav li 
+  input, a
+    font-family: 'bebasneue'
+    color: #888
+    font-size: 1.5em
+    transition: all 0.3s
+    &:hover
+      color: $orange !important
+
+input[type="text"]:focus   
+  border-color: $orange
+  box-shadow: 0 1px 1px $orange 
+  outline: 0 none
+
+.grey-bar
   border-bottom: 3px #888 solid
-  font-family: 'bebasneue'
-  color: #888
-  font-size: 1.5em
-  transition: all 0.3s
-  &:hover
-    color: $orange !important
 
 .lion
   width: 100px
