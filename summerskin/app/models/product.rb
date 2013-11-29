@@ -8,7 +8,8 @@ class Product < ActiveRecord::Base
                   :picture_file_name, 
                   :picture_content_type, 
                   :picture_file_size, 
-                  :picture_updated_at
+                  :picture_updated_at,
+                  :sale
 
 
   has_attached_file :picture, 

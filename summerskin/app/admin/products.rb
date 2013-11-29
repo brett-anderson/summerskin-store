@@ -8,6 +8,7 @@ ActiveAdmin.register Product do
       f.input :quantity
       f.input :picture
       f.input :category
+      f.input :sale
     end
     f.buttons 
   end  

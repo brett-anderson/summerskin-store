@@ -1,8 +1,13 @@
 class StoreController < ApplicationController
   before_filter :initialize_cart
+
+
   def index
-    @products = Product.order('price DESC').page(params[:page])
+    today = Time.now
+    @products = Product.order('price DESC').page(params[:page]).per(8)
     @categories = Category.all 
+    # @q = Product.search(params[:q])
+    # @product = @q.result(distinct: true)
   end
 
   def search_results
@@ -34,12 +39,54 @@ class StoreController < ApplicationController
   end
 
   def checkout
-    @customer       = Customer.new
-    @provinces      = Province.order(:name)
+    @provinces = Province.all
+    
+    if params[:customer]
+      customer       = Customer.new(params[:customer])
+      customer.save
+
+      @provinces      = Province.order(:name)
+      @order          = customer.orders.build
+      @order.status   = "new"
+      @order.pst_rate = @order.customer.province.pst
+      @order.gst_rate = @order.customer.province.gst
+      @order.hst_rate = @order.customer.province.hst
+      session[:cart].each do |product|
+        line_item          = @order.lineitems.build
+        line_item.product  = Product.find(product)
+        line_item.quantity = 1
+        line_item.price    = line_item.product.price
+        line_item.save
+      end
+      @order.save
+      redirect_to :root
+      flash[:message] = 'Thank you! Your order has been placed!'
+    end
+
+
+
+
+    # One new customer
+    # one new order
+    # one new line item per cart item
+    # clear cart
+    # success message
+  end
+
+  def filter_new
+    today = Time.now
+    @products = Product.where("created_at <= '#{today}'").page(params[:page]).per(8)
+    @categories = Category.all 
+    render action: :index
 
   end
-protected
+  def filter_sale
+    @products = Product.where(sale: true).page(params[:page]).per(8)
+    @categories = Category.all 
+    render action: :index
+  end
 
+protected
   def initialize_cart
     session[:cart] ||= []
     @cart_items = []
