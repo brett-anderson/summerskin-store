@@ -1,2 +1,5 @@
-= render 'header'
-= render @category
+.container#main-wrapper
+  .row
+    = render partial: 'shared/header'
+  .row  
+    = render @category

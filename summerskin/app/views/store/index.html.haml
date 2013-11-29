@@ -1,5 +1,11 @@
 .container#main-wrapper
-  = render 'header'
-.row
-  / %aside.row= render @categories
-  .container= render @products
+  = render partial: 'shared/header'
+  .row
+    .col-md-offset-2.col-md-8
+      = paginate @products
+  .row
+    %aside.col-md-2= render partial: 'categories/category_list', :locals => {:categories => @categories} 
+    .col-md-8#products= render @products
+    %aside.col-md-2
+      = render 'cart'
+

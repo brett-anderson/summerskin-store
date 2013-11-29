@@ -1,6 +1,9 @@
-%h2 Search Results
+.container#main-wrapper
+  = render partial: 'shared/header'
+  %h2.white-background= "Search Results for '#{params[:search]}'"
 
-- if @products.empty?
-  %p= 'Sorry, your search for ' + params[:keywords] + ' came up empty.'
+  - if @search_results.nil?
+    %p= 'Sorry, your search for ' + params[:search] + ' came up empty.'
+  - else
+    = render @search_results
 
-= render @products

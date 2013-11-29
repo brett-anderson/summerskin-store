@@ -1,6 +1,7 @@
 %section.product.col-md-3
   %h3= link_to product.name, product
   %p= number_to_currency product.price
+  %p= product.description
   - if product.picture_file_name
-    %p= link_to image_tag(product.picture, class: 'img-thumbnail', :width => '125'), product
+    %p.img-thumbnail= link_to image_tag(product.picture, :width => '125'), product
   = render partial: 'store/add_to_cart', locals: {:product => product}

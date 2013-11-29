@@ -1,0 +1,15 @@
+.container#main-wrapper.full-product
+  = render 'shared/header'
+  .container
+    .row
+      .col-md-6
+        - if @product.picture_file_name
+          %p= link_to image_tag(@product.picture, :class => 'img-thumbnail product-img'), @product
+      %section.product.col-md-5
+        %h3= link_to @product.name, @product
+        %p= number_to_currency @product.price
+        %p.text-left.lead= @product.description
+        = render partial: 'store/add_to_cart', locals: {:product => @product}
+
+
+ 

@@ -10,6 +10,7 @@ class Product < ActiveRecord::Base
                   :picture_file_size, 
                   :picture_updated_at
 
+
   has_attached_file :picture, 
                     :styles => { :medium => "300x300>", 
                                  :thumb => "100x100>" }, 
@@ -18,9 +19,9 @@ class Product < ActiveRecord::Base
   validates :picture, :attachment_presence => true
   validates :name, :description, :price, :picture, :presence => true
   validates :price, :numericality => true
-
   validates_with AttachmentPresenceValidator, :attributes => :picture
   belongs_to :category
   has_many :line_items
   has_many :orders, :through => :line_items
+
 end

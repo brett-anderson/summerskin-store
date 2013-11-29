@@ -1,0 +1,13 @@
+#shopping-cart.cart
+  %h3 Shopping Cart
+  - if session[:cart].empty?
+    %p You have no items in your cart.
+  - else
+    - @cart_items.each do |cart_item|
+      %ul.cart-item
+        %li= link_to cart_item.name, cart_item
+        %li.img-thumbnail= link_to image_tag(cart_item.picture, :width => '50'), cart_item
+        %li= number_to_currency cart_item.price
+
+  .btn.btn-default= link_to 'Clear Cart', forget_me_bro_path, id: 'clear-cart'
+  = link_to 'Checkout', checkout_path, :class => 'btn btn-default' unless session[:cart].empty?
