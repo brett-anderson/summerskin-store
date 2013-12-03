@@ -1,24 +1,31 @@
 Summerskin::Application.routes.draw do
 
-  resources :products, except: :show
+  resources :products
   resources :categories
 
+  match '/filter_new' => 'store#filter_new', as: :new
+  match '/filer_sale' => 'store#filter_sale', as: :sale
+
   root :to => "store#index", via: :get, as: :home
-  match 'products/:id' => 'store#show', as: 'product', via: :get
+  # match 'products/:id' => 'store#show', as: 'product', via: :get
   match 'categories/:id' => 'store#show', as: 'category', via: :get
   # match 'pages/:id' => 'store#show', as: 'page', via: :get
+
   match '/admin' => 'admin/dashboard#index', as: 'admin'
+  match '/forget_me_bro' => 'store#forget_me_bro', via: :get, as: 'forget_me_bro'
 
   match 'search' => 'store#search', as: 'search', via: :get
   match 'search_results' => 'store#search_results', as: 'search_results', via: :post
-
-  match '/admin/contact_us' => 'store#about_us', as: 'about_us', via: :get
+  
 
   match '/about' => 'pages#about', as: :about, via: :get
   match '/contact' => 'pages#contact', as: :contact, via: :get
-  
 
+  match '/products/:id/add_product' => 'store#add_product', as: :add_product, via: :get
+  match '/products/:id/remove_product' => 'store#remove_product', as: :remove_product, via: :get
 
+  match '/checkout' => 'store#checkout', as: :checkout
+  match '/checkout' => 'orders#new', as: :new_order, via: :post
 
 
 

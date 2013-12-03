@@ -8,15 +8,16 @@ gem 'jquery-ui-rails'
 
 gem 'sqlite3'
 gem 'activeadmin'
+gem 'nifty-generators'
 gem "meta_search",    '>= 1.1.0.pre'
 gem 'jquery-ui-rails'
 gem 'paperclip'
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'bootstrap-sass'
-
-
-
+gem 'kaminari'
+gem 'activemerchant'
+gem 'stripe'
 
 # Gems used only for assets and not required
 # in production environments by default.
